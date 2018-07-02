@@ -24,7 +24,7 @@ datos = [
 
 # datos[0:,0]
 x = np.array(datos)
-datos = pd.read_csv("F:\\lab de IA\\petrologydata.csv")
+datos = pd.read_csv("petrologydata.csv")
 x = np.array(datos.values)
 
 # # version larga de sigma
@@ -57,10 +57,11 @@ def __p(x, u, sigma):
     return np.exp(ex) / np.sqrt((2 * np.pi * sigma))   
 
 
-# def p()
-#     n = algo
-#     res = 1
-#     for j in range(n):
+def p(x,u,sigma,n)
+    res = 1
+    for j in range(n):
+        res *= __p(x[:,j], u[j], sigma[j])
+    return res
         
 
 # m = cantidad de muestras
@@ -79,10 +80,15 @@ u = [get_u(x[:,j]) for j in range(n)]
 sigma = [get_sigma(x[:,j], u[j]) for j in range(n)]
 
 
+print(p(x,u,sigma,n))
 
-for j in range(n):
-    for i in range(m):
-        print(__p(x[i,j], u[j], sigma[j]))
+# for j in range(n):
+#     for i in range(m):
+#         print(__p(x[i,j], u[j], sigma[j]))
+        
+        
+        
+        
     # print()
 #     print(__p(x[:,j], u[j], sigma[j]))
 #     print()
